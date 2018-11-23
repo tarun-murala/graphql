@@ -1,0 +1,49 @@
+type Contact {
+    firstName: String
+    lastName: String
+}
+
+enum Gender {
+    MALE
+    FEMALE
+    OTHER
+}
+
+type Email {
+    email: String
+}
+
+type Friend {
+    id: ID
+    firstName: String
+    lastName: String
+    gender: Gender
+    age: Int
+    language: String
+    email: String
+    contact: [Contact]
+}
+
+type Query {
+    friend: Friend
+}
+
+input FriendInput {
+    id: ID
+    firstName: String
+    lastName: String
+    gender: Gender
+    age: Int
+    language: String
+    email: String
+    contact: [ContactType]
+}
+
+input ContactType {
+    firstName: String
+    lastName: String
+}
+
+type Mutation {
+    createFriend(input: FriendInput): Friend
+} 
